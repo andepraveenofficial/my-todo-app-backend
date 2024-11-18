@@ -1,0 +1,28 @@
+###### Authentication ######
+
+### 01 Signup
+POST http://localhost:5000/api/v1/auth/signup
+Content-Type: application/json
+
+{
+    "firstName": "Praveen",
+    "lastName": "Ande",
+    "email": "praveen1234567@example.com",
+    "password":"praveen1234567",
+    "roleId":"10286fef-18a9-4816-a22f-15a62e46e22f"
+}
+
+### 02 Signin
+POST http://localhost:5000/api/v1/auth/signin
+Content-Type: application/json
+
+{
+  "email": "praveen1234567@example.com",
+  "password": "praveen1234567"
+}
+
+### 03 Signout
+
+@refreshToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIwMWVjYTk0Ny1hZGFlLTQ5MWEtYWM1MC03YjU2NzNjZTVmNTQiLCJpYXQiOjE3MzE5MDQyNTYsImV4cCI6MTczMjUwOTA1Nn0.RXgHiv2NrZ0WtVdSKeqYDRI9jN5cj3m6E0cG2ek8AhE
+GET http://localhost:5000/api/v1/auth/signout
+Cookie: refreshToken={{refreshToken}}
