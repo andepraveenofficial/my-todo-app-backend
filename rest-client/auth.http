@@ -7,9 +7,9 @@ Content-Type: application/json
 {
     "firstName": "Praveen",
     "lastName": "Ande",
-    "email": "praveen1234567@example.com",
-    "password":"praveen1234567",
-    "roleId":"10286fef-18a9-4816-a22f-15a62e46e22f"
+    "email": "praveen@example.com",
+    "password":"praveen123",
+    "roleId":"5c4730e8-1e17-4daf-8a12-b8c5433671b8"
 }
 
 ### 02 Signin
@@ -17,8 +17,8 @@ POST http://localhost:5000/api/v1/auth/signin
 Content-Type: application/json
 
 {
-  "email": "praveen1234567@example.com",
-  "password": "praveen1234567"
+  "email": "praveen@example.com",
+  "password": "praveen123"
 }
 
 ### 03 Signout

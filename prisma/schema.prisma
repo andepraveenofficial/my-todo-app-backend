@@ -15,7 +15,7 @@ datasource db {
 
 model Role {
   id    String @id @default(uuid())
-  name  String
+  name  String @unique
   users User[]
 }
 
@@ -29,7 +29,23 @@ model User {
   refreshToken String? // Field for refresh token (optional)
   createdAt    DateTime  @default(now())
   updatedAt    DateTime  @updatedAt
-  deletedAt    DateTime? // optional field for soft deletes
+  deletedAt    DateTime?
 
-  Role Role @relation(fields: [roleId], references: [id], onDelete: Cascade)
+  // Relationships
+  Role  Role   @relation(fields: [roleId], references: [id], onDelete: Cascade)
+  Todos Todo[]
+}
+
+model Todo {
+  id          String    @id @default(uuid())
+  title       String
+  description String?
+  status      String    @default("PENDING")
+  userId      String
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  deletedAt   DateTime?
+
+  // Relationships
+  user User @relation(fields: [userId], references: [id])
 }

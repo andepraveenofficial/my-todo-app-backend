@@ -1,7 +1,6 @@
 import { NextFunction, Response } from 'express';
 import { AuthRequest } from './auth.middleware';
 import ApiResponse from '../handlers/apiResponse.handler';
-import ApiError from '../handlers/apiError.handler';
 import { InternalError } from '../handlers/apiCustomError.handler';
 
 const roleMiddleware = (allowedRoles: string[]) => {
