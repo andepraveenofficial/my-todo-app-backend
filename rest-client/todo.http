@@ -1,15 +1,15 @@
 ########### Todos ###########
 
-@refreshToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI0OWM2YjUyMS1iZDljLTQ0YmItYWM0NC02NTI0NDNkODk5ZmIiLCJpYXQiOjE3MzIyMDY4MDgsImV4cCI6MTczMjgxMTYwOH0.Vc6SINdjpl-urUQq_at9QglYPvzW9qqFP4GSilVJbFc
+@refreshToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI0OWM2YjUyMS1iZDljLTQ0YmItYWM0NC02NTI0NDNkODk5ZmIiLCJpYXQiOjE3MzIyNzcyNDQsImV4cCI6MTczMjg4MjA0NH0.P-MffZx85fkoEU1uhbsph9CogwTYGDiXcW02jzsy8tU
 
 ### Get All Todos
 GET http://localhost:5000/api/v1/todos
-Authorization: Bearer {{refreshToken}}
+Cookie: refreshToken={{refreshToken}}
 
 
 ### Create Todo
 POST http://localhost:5000/api/v1/todos
-Authorization: Bearer {{refreshToken}}
+Cookie: refreshToken={{refreshToken}}
 Content-Type: application/json
 
 {
@@ -21,12 +21,12 @@ Content-Type: application/json
 @todoId = 4556e85c-96d1-4e6a-b4a9-933973b363a3
 
 GET http://localhost:5000/api/v1/todos/{{todoId}}
-Authorization: Bearer {{refreshToken}}
+Cookie: refreshToken={{refreshToken}}
 
 
 ### Update Todo
 PUT http://localhost:5000/api/v1/todos/{{todoId}}
-Authorization: Bearer {{refreshToken}}
+Cookie: refreshToken={{refreshToken}}
 Content-Type: application/json
 
 {
@@ -38,4 +38,4 @@ Content-Type: application/json
 
 ### Delete Todo
 DELETE http://localhost:5000/api/v1/todos/{{todoId}}
-Authorization: Bearer {{refreshToken}}
+Cookie: refreshToken={{refreshToken}}

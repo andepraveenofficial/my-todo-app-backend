@@ -19,7 +19,8 @@ export const signin = asyncHandler(async (req: Request, res: Response) => {
   res.cookie('refreshToken', refreshToken, {
     httpOnly: true,
     secure: true,
-    sameSite: 'strict',
+    // sameSite: 'strict', // development
+    sameSite: 'none',
   });
 
   const data = {
