@@ -5,13 +5,21 @@ import prisma from '../../../config/prisma';
 export const findUserByEmail = async (
   email: string,
 ): Promise<UserModel | null> => {
-  const user = await prisma.user.findUnique({ where: { email } });
+  const user = await prisma.user.findUnique({
+    where: { email },
+    include: {
+      Role: true,
+    },
+  });
   return user;
 };
 
 export const createUser = async (userData: SignupDto): Promise<UserModel> => {
   const newUser = await prisma.user.create({
     data: userData,
+    include: {
+      Role: true, // Include the related Role data in the result
+    },
   });
 
   return newUser;

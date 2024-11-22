@@ -3,7 +3,7 @@ const whitelist = [
   'https://www.yoursite.com',
   'http://127.0.0.1:5000',
   'http://localhost:5000',
-  'http://localhost:3000',
+  'http://localhost:5173',
 ];
 
 const corsOptions = {
@@ -18,8 +18,10 @@ const corsOptions = {
       callback(new Error('Not allowed by CORS'));
     }
   },
-  methods: 'GET,POST',
+  // methods: 'GET,POST',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
   allowedHeaders: 'Content-Type,Authorization',
+  credentials: true,
 };
 
 export default corsOptions;

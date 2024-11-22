@@ -23,7 +23,7 @@ export const signup = async (data: SignupDto): Promise<UserModel> => {
 };
 
 export const signin = async (email: string, password: string) => {
-  const user = await authRepository.findUserByEmail(email);
+  let user = await authRepository.findUserByEmail(email);
   if (!user) {
     throw new ApiError(400, 'User not found');
   }
@@ -34,11 +34,13 @@ export const signin = async (email: string, password: string) => {
   }
 
   const refreshToken = generateRefreshToken({ userId: user.id });
-  const updatedUser = await authRepository.updateUser(user.id, {
+  await authRepository.updateUser(user.id, {
     refreshToken,
   });
 
-  return { user: updatedUser, refreshToken };
+  user = await authRepository.findUserByEmail(email);
+
+  return { user, refreshToken };
 };
 
 export const signout = async (userId: string | undefined) => {

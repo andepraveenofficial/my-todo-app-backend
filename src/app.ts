@@ -25,7 +25,16 @@ import apiRoutes from './api';
 const app = express();
 
 /* -----> Third Party Middlewares <----- */
-// app.use(cors()); // Testing
+
+/*
+app.use(
+  cors({
+    origin: 'http://localhost:5173', // Allow requests from this origin
+    credentials: true, // Allow cookies and other credentials
+  }),
+);
+*/
+
 app.use(cors(corsOptions)); // CORS origin
 app.use(helmet()); // Use Helmet to secure the app with default settings
 app.use(limiter); // Use limiter to control to call the APIs

@@ -1,7 +1,6 @@
 ########### Todos ###########
 
-@refreshToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI0OWM2YjUyMS1iZDljLTQ0YmItYWM0NC02NTI0NDNkODk5ZmIiLCJpYXQiOjE3MzIxMTQzNzEsImV4cCI6MTczMjcxOTE3MX0.StVTw9p7qhUb_VQgIOR_bNWyH0U8ozTT58uCN1SyePQ
-
+@refreshToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI0OWM2YjUyMS1iZDljLTQ0YmItYWM0NC02NTI0NDNkODk5ZmIiLCJpYXQiOjE3MzIyMDY4MDgsImV4cCI6MTczMjgxMTYwOH0.Vc6SINdjpl-urUQq_at9QglYPvzW9qqFP4GSilVJbFc
 
 ### Get All Todos
 GET http://localhost:5000/api/v1/todos
@@ -19,7 +18,7 @@ Content-Type: application/json
 }
 
 ### Get Todo By Id
-@todoId = 8d9af10a-3e52-4a92-9c12-f6c1a676474b
+@todoId = 4556e85c-96d1-4e6a-b4a9-933973b363a3
 
 GET http://localhost:5000/api/v1/todos/{{todoId}}
 Authorization: Bearer {{refreshToken}}

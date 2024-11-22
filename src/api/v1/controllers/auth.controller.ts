@@ -24,13 +24,7 @@ export const signin = asyncHandler(async (req: Request, res: Response) => {
 
   const data = {
     refreshToken,
-    user: {
-      id: user.id,
-      email: user.email,
-      firstName: user.firstName,
-      lastName: user.lastName,
-      roleId: user.roleId,
-    },
+    user,
   };
 
   new ApiResponse(res, 200, 'SignIn successful', data);
