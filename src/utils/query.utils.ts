@@ -65,7 +65,9 @@ export async function applyQueryOptions<T>(
   if (options.sort) {
     const [field, order] = options.sort.split(':');
     if (sortableFields.includes(field)) {
-      queryOptions.orderBy = { [field]: order === 'desc' ? 'desc' : 'asc' };
+      queryOptions.orderBy = {
+        [field]: order === 'desc' ? 'desc' : 'asc',
+      };
     }
   }
 

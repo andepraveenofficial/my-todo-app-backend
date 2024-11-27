@@ -9,21 +9,20 @@ type PrismaErrorTypes =
 export const handlePrismaError = (error: PrismaErrorTypes): ApiError => {
   // Handle Known Request Errors
   if (error instanceof Prisma.PrismaClientKnownRequestError) {
-    switch (error.code) {
-      case 'P2002':
-        return new ApiError(
-          409,
-          `Duplicate entry for ${error.meta?.target as string}`,
-        );
-      case 'P2025':
-        return new ApiError(404, 'Record not found');
-      case 'P2003':
-        return new ApiError(400, 'Invalid reference: Related record not found');
-      case 'P2014':
-        return new ApiError(400, 'Invalid ID format or value');
-      default:
-        return new ApiError(500, 'Prisma Database Connection Error');
-    }
+    const errorMap: { [key: string]: ApiError } = {
+      P2002: new ApiError(
+        409,
+        `Duplicate entry for ${error.meta?.target as string}`,
+      ),
+      P2025: new ApiError(404, 'Record not found'),
+      P2003: new ApiError(400, 'Invalid reference: Related record not found'),
+      P2014: new ApiError(400, 'Invalid ID format or value'),
+    };
+
+    return (
+      errorMap[error.code] ||
+      new ApiError(500, 'Prisma Database Connection Error')
+    );
   }
 
   // Handle Validation Errors

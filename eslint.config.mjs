@@ -17,7 +17,7 @@ export default [
     },
     rules: {
       'no-unused-vars': 'error', // Unused variables
-      indent: ['error', 2], // Indentation
+      indent: ['warn', 2], // Indentation
       quotes: ['error', 'single'], // Strings must be in single quotes
       'no-console': 'warn', // Allow console statements but warn
       'no-debugger': 'error', // Throw an error if the debugger statement is used

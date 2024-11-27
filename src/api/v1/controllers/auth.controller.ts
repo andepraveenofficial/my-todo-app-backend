@@ -21,6 +21,7 @@ export const signin = asyncHandler(async (req: Request, res: Response) => {
     secure: true,
     // sameSite: 'strict', // development
     sameSite: 'none',
+    maxAge: 7 * 24 * 60 * 60 * 1000,
   });
 
   const data = {

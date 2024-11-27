@@ -15,7 +15,9 @@ export const getTodosByUserId = async (
 };
 
 export const getTodoById = async (id: string): Promise<TodoModel> => {
-  const todo = await prisma.todo.findUnique({ where: { id, deletedAt: null } });
+  const todo = await prisma.todo.findUnique({
+    where: { id, deletedAt: null },
+  });
   if (!todo) {
     throw new ApiError(404, 'Todo not found');
   }
