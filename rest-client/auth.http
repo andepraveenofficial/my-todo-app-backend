@@ -23,6 +23,12 @@ Content-Type: application/json
 
 ### 03 Signout
 
-@refreshToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIwMWVjYTk0Ny1hZGFlLTQ5MWEtYWM1MC03YjU2NzNjZTVmNTQiLCJpYXQiOjE3MzE5MDQyNTYsImV4cCI6MTczMjUwOTA1Nn0.RXgHiv2NrZ0WtVdSKeqYDRI9jN5cj3m6E0cG2ek8AhE
+@refreshToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI0OWM2YjUyMS1iZDljLTQ0YmItYWM0NC02NTI0NDNkODk5ZmIiLCJpYXQiOjE3MzI3MTgyNDMsImV4cCI6MTczMzMyMzA0M30.zBpq1WSmkt-Tv0XKcwLC_ZAI2utXl4GkGPONhA_v4Yo
 GET http://localhost:5000/api/v1/auth/signout
 Cookie: refreshToken={{refreshToken}}
+
+### 04 verifyToken
+GET http://localhost:5000/api/v1/auth/verify-token
+Cookie: refreshToken={{refreshToken}}
+
+

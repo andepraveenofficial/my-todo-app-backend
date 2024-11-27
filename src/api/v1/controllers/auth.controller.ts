@@ -45,3 +45,17 @@ export const signout = asyncHandler(async (req: AuthRequest, res: Response) => {
 
   new ApiResponse(res, 200, 'Signout successful', {});
 });
+
+export const verifyToken = asyncHandler(
+  async (req: AuthRequest, res: Response) => {
+    const email = req.user?.userEmail;
+
+    let user;
+
+    if (email) {
+      user = await authService.verifyToken(email);
+    }
+
+    new ApiResponse(res, 200, 'Verification successfully', { user });
+  },
+);

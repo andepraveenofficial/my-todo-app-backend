@@ -48,3 +48,12 @@ export const signout = async (userId: string | undefined) => {
     await authRepository.removeRefreshToken(userId);
   }
 };
+
+export const verifyToken = async (email: string) => {
+  let user = await authRepository.findUserByEmail(email);
+  if (!user) {
+    throw new ApiError(400, 'User not found');
+  }
+
+  return user;
+};

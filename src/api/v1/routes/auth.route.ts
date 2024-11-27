@@ -9,5 +9,6 @@ const router = Router();
 router.post('/signup', validate(signupSchema), authController.signup);
 router.post('/signin', validate(signinSchema), authController.signin);
 router.get('/signout', authMiddleware, authController.signout);
+router.get('/verify-token', authMiddleware, authController.verifyToken);
 
 export default router;
